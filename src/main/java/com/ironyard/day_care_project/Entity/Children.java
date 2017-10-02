@@ -1,4 +1,4 @@
-package com.ironyard.day_care_project;
+package com.ironyard.day_care_project.Entity;
 
 import javax.persistence.*;
 

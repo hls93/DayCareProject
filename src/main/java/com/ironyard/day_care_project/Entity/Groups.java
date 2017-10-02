@@ -1,4 +1,6 @@
-package com.ironyard.day_care_project;
+package com.ironyard.day_care_project.Entity;
+
+import com.ironyard.day_care_project.Entity.Children;
 
 import javax.persistence.*;
 import java.util.HashSet;
