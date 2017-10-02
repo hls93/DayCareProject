@@ -14,7 +14,50 @@ public class Groups {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Children> group = new HashSet<>();
+    private String teachers;
 
+    private Children childrens;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Children> children = new HashSet<>();
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTeachers() {
+        return teachers;
+    }
+
+    public void setTeachers(String teachers) {
+        this.teachers = teachers;
+    }
+
+    public Children getChildrens() {
+        return childrens;
+    }
+
+    public void setChildrens(Children childrens) {
+        this.childrens = childrens;
+    }
+
+    public Set<Children> getChildren() {
+        return children;
+    }
+
+    public void setChildren(Set<Children> children) {
+        this.children = children;
+    }
 }
