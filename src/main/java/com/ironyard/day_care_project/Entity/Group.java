@@ -1,14 +1,12 @@
 package com.ironyard.day_care_project.Entity;
 
-import com.ironyard.day_care_project.Entity.Children;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table( name = "groups")
-public class Groups {
+public class Group {
 
     @Id
     @GeneratedValue
@@ -18,10 +16,11 @@ public class Groups {
 
     private String teachers;
 
-    private Children childrens;
+
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Children> children = new HashSet<>();
+    @JoinColumn(name = "group_id")
+    private Set<Child> children = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -47,19 +46,11 @@ public class Groups {
         this.teachers = teachers;
     }
 
-    public Children getChildrens() {
-        return childrens;
-    }
-
-    public void setChildrens(Children childrens) {
-        this.childrens = childrens;
-    }
-
-    public Set<Children> getChildren() {
+    public Set<Child> getChildren() {
         return children;
     }
 
-    public void setChildren(Set<Children> children) {
+    public void setChildren(Set<Child> children) {
         this.children = children;
     }
 }
