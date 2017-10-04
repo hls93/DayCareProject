@@ -16,13 +16,13 @@ public class UsersController {
     @Autowired
     UsersRepository userRepo;
 
-    @GetMapping("/listUsers")
+    @GetMapping("/")
     public List<User> userList(){
 
         return userRepo.findAll();
     }
 
-    @PostMapping("/listUsers")
+    @PostMapping("/")
     public List<User> createUser(@RequestBody User user) {
         return (List<User>) userRepo.save(user);
 

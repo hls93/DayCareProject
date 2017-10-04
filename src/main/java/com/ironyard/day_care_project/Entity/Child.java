@@ -22,7 +22,7 @@ public class Child {
 
     private String parentEmail;
 
-    private String group;
+
 
     public Child(String firstName, String lastName, String dob, String parentFirstName, String parentLastName, String parentEmail, String group) {
         this.firstName = firstName;
@@ -31,7 +31,7 @@ public class Child {
         this.parentFirstName = parentFirstName;
         this.parentLastName = parentLastName;
         this.parentEmail = parentEmail;
-        this.group = group;
+
     }
 
     public Integer getId() {
@@ -90,12 +90,6 @@ public class Child {
         this.parentEmail = parentEmail;
     }
 
-    public String getGroup() {
-        return group;
-    }
 
-    public void setGroup(String group) {
-        this.group = group;
-    }
 }
 
