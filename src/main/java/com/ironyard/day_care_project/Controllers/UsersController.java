@@ -5,6 +5,7 @@ import com.ironyard.day_care_project.Repos.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,18 +22,11 @@ public class UsersController {
         return userRepo.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/listUsers")
+    public List<User> createUser(@RequestBody User user) {
+        return (List<User>) userRepo.save(user);
 
-    @GetMapping("/words")
-    public User user() {
-        User user = new User();
-        user.setId(2);
-        user.setName("yigy");
-        user.setEmail("email@email.com");
-        user.setPassword("secret");
-
-
-        return user;
     }
+
 
 }
