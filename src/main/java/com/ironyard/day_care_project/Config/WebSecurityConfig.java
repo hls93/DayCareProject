@@ -24,20 +24,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/")
-                .permitAll().anyRequest()
-                .authenticated()
+                .antMatchers("/user/register").permitAll()
+                .anyRequest().authenticated()
 
                 .and()
                     .httpBasic()
-//                     .formLogin()
-//                     .permitAll()
-                .and()
 
+                .and()
                      .cors()
-//                .csrf().disable()
 
                 .and()
+                    .csrf()
+                    .disable()
                     .logout()
                     .permitAll();
 
@@ -48,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             auth.jdbcAuthentication()
                     .dataSource(dataSource)
                     .usersByUsernameQuery("SELECT email as username, password, true as enabled FROM users WHERE email = ?")
-                    .authoritiesByUsernameQuery("SELECT email as username, role as authority FROM users WHERE email = ?");
+                    .authoritiesByUsernameQuery("SELECT email as username, 'admin' as authority FROM users WHERE email = ?");
         }
 
 

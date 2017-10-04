@@ -11,22 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class UsersController {
+public class UserController {
 
     @Autowired
-    UsersRepository userRepo;
+    private UsersRepository userRepo;
 
-    @GetMapping("/")
+    @GetMapping("/users")
     public List<User> userList(){
 
         return userRepo.findAll();
     }
 
-    @PostMapping("/")
-    public List<User> createUser(@RequestBody User user) {
-        return (List<User>) userRepo.save(user);
-
+    @PostMapping("/users/register")
+    public User register(@RequestBody User user) {
+        return userRepo.save(user);
     }
+
+
 
 
 }
