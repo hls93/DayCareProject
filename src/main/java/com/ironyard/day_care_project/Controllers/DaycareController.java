@@ -15,23 +15,23 @@ import java.util.List;
 public class DaycareController {
 
     @Autowired
-    private DaycareRepository userRepo;
+    private DaycareRepository daycareRepo;
 
     @GetMapping("/daycares")
     public List<Daycare> userList(){
 
-        return userRepo.findAll();
+        return daycareRepo.findAll();
     }
 
     @PostMapping("/daycares/register")
     public Daycare register(@RequestBody Daycare daycare) {
-        return userRepo.save(daycare);
+        return daycareRepo.save(daycare);
     }
 
     @PostMapping("/daycares/authenticate")
     public Daycare authenticate(Principal principal) {
 
-        return userRepo.findByEmail(principal.getName());
+        return daycareRepo.findByEmail(principal.getName());
     }
 
 
