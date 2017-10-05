@@ -18,7 +18,7 @@ public class DaycareController {
     private DaycareRepository daycareRepo;
 
     @GetMapping("/daycares")
-    public List<Daycare> userList(){
+    public List<Daycare> daycareList(){
 
         return daycareRepo.findAll();
     }
