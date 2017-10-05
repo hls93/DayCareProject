@@ -16,7 +16,7 @@ public class DaycareController {
     @Autowired
     private DaycareRepository userRepo;
 
-    @GetMapping("/users")
+    @GetMapping("/daycares")
     public List<Daycare> userList(){
 
         return userRepo.findAll();
@@ -26,6 +26,7 @@ public class DaycareController {
     public Daycare register(@RequestBody Daycare daycare) {
         return userRepo.save(daycare);
     }
+
 
 
 
