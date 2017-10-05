@@ -1,7 +1,7 @@
 package com.ironyard.day_care_project.Controllers;
 
-import com.ironyard.day_care_project.Entity.User;
-import com.ironyard.day_care_project.Repos.UsersRepository;
+import com.ironyard.day_care_project.Entity.Daycare;
+import com.ironyard.day_care_project.Repos.DaycareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class UserController {
+public class DaycareController {
 
     @Autowired
-    private UsersRepository userRepo;
+    private DaycareRepository userRepo;
 
     @GetMapping("/users")
-    public List<User> userList(){
+    public List<Daycare> userList(){
 
         return userRepo.findAll();
     }
 
-    @PostMapping("/users/register")
-    public User register(@RequestBody User user) {
-        return userRepo.save(user);
+    @PostMapping("/daycares/register")
+    public Daycare register(@RequestBody Daycare daycare) {
+        return userRepo.save(daycare);
     }
 
 

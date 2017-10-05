@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/user/register").permitAll()
+                .antMatchers("/daycares/register").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
@@ -45,8 +45,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
             auth.jdbcAuthentication()
                     .dataSource(dataSource)
-                    .usersByUsernameQuery("SELECT email as username, password, true as enabled FROM users WHERE email = ?")
-                    .authoritiesByUsernameQuery("SELECT email as username, 'admin' as authority FROM users WHERE email = ?");
+                    .usersByUsernameQuery("SELECT email as username, password, true as enabled FROM daycare WHERE email = ?")
+                    .authoritiesByUsernameQuery("SELECT email as username, 'admin' as authority FROM daycare WHERE email = ?");
         }
 
 
