@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,12 @@ public class DaycareController {
     @PostMapping("/daycares/register")
     public Daycare register(@RequestBody Daycare daycare) {
         return userRepo.save(daycare);
+    }
+
+    @PostMapping("/daycares/authenticate")
+    public Daycare authenticate(Principal principal) {
+
+        return userRepo.findByEmail(principal.getName());
     }
 
 
