@@ -22,7 +22,8 @@ public class Child {
 
     private String parentEmail;
 
-//    private String group;
+    @ManyToOne
+    private Group owner;
 
 
 
@@ -92,12 +93,12 @@ public class Child {
         this.parentEmail = parentEmail;
     }
 
-//    public String getGroup() {
-//        return group;
-//    }
-//
-//    public void setGroup(String group) {
-//        this.group = group;
-//    }
+    public Group getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Group owner) {
+        this.owner = owner;
+    }
 }
 

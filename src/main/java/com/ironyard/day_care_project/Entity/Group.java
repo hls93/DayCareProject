@@ -16,7 +16,8 @@ public class Group {
 
     private String teachers;
 
-
+    @ManyToOne
+    private Daycare owner;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "group_id")
@@ -52,5 +53,13 @@ public class Group {
 
     public void setChildren(Set<Child> children) {
         this.children = children;
+    }
+
+    public Daycare getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Daycare owner) {
+        this.owner = owner;
     }
 }
