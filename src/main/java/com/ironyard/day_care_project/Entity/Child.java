@@ -22,19 +22,20 @@ public class Child {
 
     private String parentEmail;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Group.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "group", referencedColumnName = "id")
     private Group owner;
 
 
 
-    public Child(String firstName, String lastName, String dob, String parentFirstName, String parentLastName, String parentEmail, String group) {
+    public Child(String firstName, String lastName, String dob, String parentFirstName, String parentLastName, String parentEmail, Group owner) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
         this.parentFirstName = parentFirstName;
         this.parentLastName = parentLastName;
         this.parentEmail = parentEmail;
-
+        this.owner = owner;
     }
 
     public Integer getId() {

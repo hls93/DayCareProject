@@ -1,8 +1,7 @@
 package com.ironyard.day_care_project.Controllers;
 
-
-import com.ironyard.day_care_project.Entity.Group;
-import com.ironyard.day_care_project.Repos.GroupRepository;
+import com.ironyard.day_care_project.Entity.Child;
+import com.ironyard.day_care_project.Repos.ChildRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,20 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class GroupController {
+public class ChildController {
 
     @Autowired
-    private GroupRepository groupRepo;
+    ChildRepository childRepo;
 
-    @GetMapping("/daycares/groups")
-    public List<Group> daycareList(){
-
-        return groupRepo.findAll();
+    @GetMapping("/daycares/child")
+    public List<Child> childList() {
+        return childRepo.findAll();
     }
 
-    @PostMapping("/daycares/groups")
-    public Group register(@RequestBody Group group) {
-        return groupRepo.save(group);
+    @PostMapping("/daycares/child")
+    public Child register(@RequestBody Child child) {
+        return childRepo.save(child);
     }
+
 
 }

@@ -26,9 +26,20 @@ public class Daycare {
     private String password;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private Set<Group> groups = new HashSet<>();
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id")
+//    private Set<Group> groups = new HashSet<>();
+
+
+    public Daycare(String address, String city, String state, String zipcode, String name, String email, String password) {
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;
@@ -63,13 +74,13 @@ public class Daycare {
     }
 
 
-    public Set<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups;
-    }
+//    public Set<Group> getGroups() {
+//        return groups;
+//    }
+//
+//    public void setGroups(Set<Group> groups) {
+//        this.groups = groups;
+//    }
 
     public String getAddress() {
         return address;

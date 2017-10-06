@@ -16,12 +16,20 @@ public class Group {
 
     private String teachers;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = Daycare.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "daycare", referencedColumnName = "id")
     private Daycare owner;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "group_id")
-    private Set<Child> children = new HashSet<>();
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "group_id")
+//    private Set<Child> children = new HashSet<>();
+
+    public Group(String name, String teachers, Daycare owner, Set<Child> children) {
+        this.name = name;
+        this.teachers = teachers;
+        this.owner = owner;
+    }
 
     public Integer getId() {
         return id;
@@ -47,13 +55,13 @@ public class Group {
         this.teachers = teachers;
     }
 
-    public Set<Child> getChildren() {
-        return children;
-    }
-
-    public void setChildren(Set<Child> children) {
-        this.children = children;
-    }
+//    public Set<Child> getChildren() {
+//        return children;
+//    }
+//
+//    public void setChildren(Set<Child> children) {
+//        this.children = children;
+//    }
 
     public Daycare getOwner() {
         return owner;
