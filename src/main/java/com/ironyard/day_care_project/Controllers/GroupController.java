@@ -20,7 +20,7 @@ public class GroupController {
     @GetMapping("/daycares/groups")
     public List<Group> daycareList(){
 
-        return groupRepo.findAll();
+        return groupRepo.findByEmail();
     }
 
     @PostMapping("/daycares/groups")
