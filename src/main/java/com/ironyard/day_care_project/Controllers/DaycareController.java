@@ -3,14 +3,12 @@ package com.ironyard.day_care_project.Controllers;
 import com.ironyard.day_care_project.Entity.Daycare;
 import com.ironyard.day_care_project.Repos.DaycareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class DaycareController {
 
@@ -33,8 +31,6 @@ public class DaycareController {
 
         return daycareRepo.findByEmail(principal.getName());
     }
-
-
 
 
 
