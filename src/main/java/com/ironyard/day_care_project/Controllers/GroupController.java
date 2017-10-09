@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -18,9 +19,9 @@ public class GroupController {
     private GroupRepository groupRepo;
 
     @GetMapping("/daycares/groups")
-    public List<Group> daycareList(){
+    public List<Group> daycareList(Principal principal){
 
-        return groupRepo.findByEmail();
+        return groupRepo.findAllByOwnerEmail(principal.getName());
     }
 
     @PostMapping("/daycares/groups")

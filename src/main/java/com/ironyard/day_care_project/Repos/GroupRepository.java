@@ -10,9 +10,11 @@ import java.util.List;
 
 public interface GroupRepository extends JpaRepository <Group, Integer> {
 
-    @Query(value = "SELECT * FROM daycare WHERE email = ?1", nativeQuery = true)
+//    @Query(value = "SELECT * FROM daycare WHERE email = ?1", nativeQuery = true)
+//
+//    Daycare findByEmail(String name);
 
-    Daycare findByEmail(String name);
+    List<Group> findAllByOwnerEmail(String email);
 
 
 }

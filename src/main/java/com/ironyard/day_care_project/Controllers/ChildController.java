@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -17,8 +18,9 @@ public class ChildController {
     ChildRepository childRepo;
 
     @GetMapping("/daycares/child")
-    public List<Child> childList() {
-        return childRepo.findAll();
+    public List<Child> childList(Principal principal) {
+
+        return childRepo.findAllByOwnerName(principal.getName());
     }
 
     @PostMapping("/daycares/child")

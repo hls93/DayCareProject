@@ -31,6 +31,9 @@ public class Daycare {
 //    private Set<Group> groups = new HashSet<>();
 
 
+    public Daycare() {
+    }
+
     public Daycare(String address, String city, String state, String zipcode, String name, String email, String password) {
         this.address = address;
         this.city = city;

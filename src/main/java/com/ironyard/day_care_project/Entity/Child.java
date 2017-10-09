@@ -23,10 +23,11 @@ public class Child {
     private String parentEmail;
 
     @ManyToOne(targetEntity = Group.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "group", referencedColumnName = "id")
+    //@JoinColumn(name = "group_id", referencedColumnName = "id")
     private Group owner;
 
-
+    public Child() {
+    }
 
     public Child(String firstName, String lastName, String dob, String parentFirstName, String parentLastName, String parentEmail, Group owner) {
         this.firstName = firstName;
@@ -101,5 +102,7 @@ public class Child {
     public void setOwner(Group owner) {
         this.owner = owner;
     }
+
+
 }
 

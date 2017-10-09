@@ -1,8 +1,13 @@
 package com.ironyard.day_care_project.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Entity
 @Table( name = "groups")
@@ -16,14 +21,14 @@ public class Group {
 
     private String teachers;
 
+    //@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @ManyToOne(targetEntity = Daycare.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "daycare", referencedColumnName = "id")
     private Daycare owner;
 
+    public Group() {
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "group_id")
-//    private Set<Child> children = new HashSet<>();
+    }
 
     public Group(String name, String teachers, Daycare owner, Set<Child> children) {
         this.name = name;
@@ -55,13 +60,6 @@ public class Group {
         this.teachers = teachers;
     }
 
-//    public Set<Child> getChildren() {
-//        return children;
-//    }
-//
-//    public void setChildren(Set<Child> children) {
-//        this.children = children;
-//    }
 
     public Daycare getOwner() {
         return owner;
