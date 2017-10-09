@@ -18,9 +18,9 @@ public class ChildController {
     ChildRepository childRepo;
 
     @GetMapping("/daycares/child")
-    public List<Child> childList(Principal principal) {
+    public List<Child> childList(Integer id) {
 
-        return childRepo.findAllByOwnerName(principal.getName());
+        return childRepo.findAllByOwnerId(id);
     }
 
     @PostMapping("/daycares/child")
