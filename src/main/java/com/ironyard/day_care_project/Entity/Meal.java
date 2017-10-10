@@ -12,6 +12,12 @@ public class Meal {
     public Meal() {
     }
 
+    public Meal(String type, String food, String amount) {
+        this.type = type;
+        this.food = food;
+        this.amount = amount;
+    }
+
     public String getType() {
         return type;
     }

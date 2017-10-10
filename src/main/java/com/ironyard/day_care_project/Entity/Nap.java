@@ -10,6 +10,11 @@ public class Nap {
     public Nap() {
     }
 
+    public Nap(Integer napStart, Integer napEnd) {
+        this.napStart = napStart;
+        this.napEnd = napEnd;
+    }
+
     public Integer getNapStart() {
         return napStart;
     }
