@@ -14,7 +14,7 @@ public class Report {
 
 
 }
-//diapers: [{time: "0800", type: "wet"}, {time: "1015", type: "dry"}],
+
 //        itemsNeeded: {wipes: true, diapers: false, clothes: true},
 //        meals: [{type: "breakfast", food: "Bacon, Eggs, Toast", amount: "most"},{type: "lunch", food: "Sandwich", amount: "all"}],
 //        naps: [{napStart: "1130", napEnd: "1230"}],
