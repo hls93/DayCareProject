@@ -6,7 +6,7 @@ import java.util.ArrayList;
 @Entity
 public class Report {
 
-    private ArrayList<DiaperChange> diaperChangee;
+    private ArrayList<DiaperChange> diaperChange;
     private ArrayList<ItemNeeded> itemsNeeded;
     private ArrayList<Meal> meals;
     private ArrayList<Nap> naps;
@@ -15,20 +15,20 @@ public class Report {
     public Report() {
     }
 
-    public Report(ArrayList<DiaperChange> diaperChangee, ArrayList<ItemNeeded> itemsNeeded, ArrayList<Meal> meals, ArrayList<Nap> naps, String note) {
-        this.diaperChangee = diaperChangee;
+    public Report(ArrayList<DiaperChange> diaperChange, ArrayList<ItemNeeded> itemsNeeded, ArrayList<Meal> meals, ArrayList<Nap> naps, String note) {
+        this.diaperChange = diaperChange;
         this.itemsNeeded = itemsNeeded;
         this.meals = meals;
         this.naps = naps;
         this.note = note;
     }
 
-    public ArrayList<DiaperChange> getDiaperChangee() {
-        return diaperChangee;
+    public ArrayList<DiaperChange> getDiaperChange() {
+        return diaperChange;
     }
 
-    public void setDiaperChangee(ArrayList<DiaperChange> diaperChangee) {
-        this.diaperChangee = diaperChangee;
+    public void setDiaperChange(ArrayList<DiaperChange> diaperChange) {
+        this.diaperChange = diaperChange;
     }
 
     public ArrayList<ItemNeeded> getItemsNeeded() {
