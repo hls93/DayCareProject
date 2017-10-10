@@ -4,6 +4,8 @@ import com.ironyard.day_care_project.Entity.Report;
 import com.ironyard.day_care_project.Repos.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,7 +17,15 @@ public class ReportController {
     ReportRepository reportRepo;
 
     @GetMapping("/daycares/reports")
-    public Report report(Report report)
+    public List<Report> report() {
+
+        return reportRepo.findAll();
+    }
+
+    @PostMapping("/daycares/reports")
+    public Report post(@RequestBody Report report) {
+        return reportRepo.save(report);
+    }
 
 
 
