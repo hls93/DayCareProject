@@ -23,6 +23,7 @@ public class ChildController {
 
     @PostMapping("/daycares/child")
     public Child register(@RequestBody Child child) {
+
         return childRepo.save(child);
     }
 
