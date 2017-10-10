@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "daycare")
 public class Daycare {
 
     @Id
@@ -24,11 +25,6 @@ public class Daycare {
     private String email;
 
     private String password;
-
-
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user_id")
-//    private Set<Group> groups = new HashSet<>();
 
 
     public Daycare() {

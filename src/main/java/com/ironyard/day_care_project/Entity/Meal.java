@@ -2,7 +2,7 @@ package com.ironyard.day_care_project.Entity;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class Meal {
 
     private String type;

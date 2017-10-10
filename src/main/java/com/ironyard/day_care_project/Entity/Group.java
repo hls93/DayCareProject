@@ -21,7 +21,6 @@ public class Group {
 
     private String teachers;
 
-    //@JsonInclude(JsonInclude.Include.NON_EMPTY)
     @ManyToOne(targetEntity = Daycare.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "daycare", referencedColumnName = "id")
     private Daycare owner;
