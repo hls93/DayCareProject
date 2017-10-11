@@ -2,6 +2,7 @@ package com.ironyard.day_care_project.Controllers;
 
 import com.ironyard.day_care_project.Entity.Report;
 import com.ironyard.day_care_project.Repos.ReportRepository;
+import com.ironyard.day_care_project.Services.ReportContentBuilder;
 import com.ironyard.day_care_project.Services.ReportSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,9 @@ public class ReportController {
     @Autowired
     ReportSenderService reportSenderService;
 
+    @Autowired
+    ReportContentBuilder reportContentBuilder;
+
     @GetMapping("/daycares/reports")
     public List<Report> report() {
 
@@ -30,7 +34,8 @@ public class ReportController {
     public Report post(@RequestBody Report report) {
        // return reportRepo.save(report);
 
-        reportSenderService.sendReport();
+
+        reportSenderService.prepareAndSend("cmr319@yahoo.com", "Daily Report", "changed at 10");
         return null;
 
 

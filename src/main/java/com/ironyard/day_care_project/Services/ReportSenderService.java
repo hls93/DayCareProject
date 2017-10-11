@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,14 +20,27 @@ public class ReportSenderService {
         this.javaMailSender = javaMailSender;
     }
 
-    public void sendReport() throws MailException {
+    @Autowired
+    public ReportContentBuilder reportContentBuilder;
 
-        SimpleMailMessage report = new SimpleMailMessage();
-        report.setTo("cmr319@yahoo.com");
-        report.setFrom("irondaycare@gmail.com");
-        report.setSubject("Daily Report for whatever");
-        report.setText("gibberish");
+    public void prepareAndSend(String recipient, String message, String diapers) {
 
-        javaMailSender.send(report);
+        MimeMessagePreparator messagePreparator = mimeMessage -> {
+            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+            messageHelper.setTo(recipient);
+            messageHelper.setFrom("irondaycare@gmail.com");
+            messageHelper.setSubject("Daily Report for whatever");
+            String content = reportContentBuilder.build(message, diapers);
+            messageHelper.setText(content, true);
+        };
+        try{
+            javaMailSender.send(messagePreparator);
+        } catch (MailException e) {
+
+        }
+
+
+
+
     }
 }
