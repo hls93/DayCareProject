@@ -23,7 +23,7 @@ public class Child {
     private String parentEmail;
 
     @ManyToOne(targetEntity = Group.class, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "group_id", referencedColumnName = "id")
+    @JoinColumn(name = "group_id", referencedColumnName = "id")
     private Group owner;
 
     public Child() {
