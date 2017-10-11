@@ -14,8 +14,8 @@ public class ChildController {
     @Autowired
     ChildRepository childRepo;
 
-    @GetMapping("/daycares/child")
-    public List<Child> childList(Integer id) {
+    @GetMapping("/daycares/groups/{id}/childen")
+    public List<Child> childList(@PathVariable(name = "id") Integer id) {
 
         return childRepo.findAllByOwnerId(id);
     }
