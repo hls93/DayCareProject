@@ -1,8 +1,10 @@
 package com.ironyard.day_care_project.Controllers;
 
 import com.ironyard.day_care_project.Entity.Child;
+import com.ironyard.day_care_project.Entity.Group;
 import com.ironyard.day_care_project.Repos.ChildRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +31,11 @@ public class ChildController {
     public Child register(@RequestBody Child child) {
 
         return childRepo.save(child);
+    }
+
+    @DeleteMapping("daycares/child/delete/{id}")
+    public Child deleteChild(@PathVariable Integer id) {
+        return new Child(id, HttpStatus.OK);
     }
 
 

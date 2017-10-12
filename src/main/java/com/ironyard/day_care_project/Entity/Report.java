@@ -1,5 +1,7 @@
 package com.ironyard.day_care_project.Entity;
 
+import org.springframework.http.HttpStatus;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 
@@ -21,7 +23,7 @@ public class Report {
     @JoinColumn(name = "child_id", referencedColumnName = "id")
     private Group owner;
 
-    public Report() {
+    public Report(Integer report, HttpStatus ok) {
     }
 
     public Report(Integer id, ArrayList<DiaperChange> diaperChange, ArrayList<ItemNeeded> itemsNeeded, ArrayList<Meal> meals, ArrayList<Nap> naps, String note, Group Owner) {

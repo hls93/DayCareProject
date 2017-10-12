@@ -4,6 +4,7 @@ package com.ironyard.day_care_project.Controllers;
 import com.ironyard.day_care_project.Entity.Group;
 import com.ironyard.day_care_project.Repos.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -28,8 +29,8 @@ public class GroupController {
     }
 
     @DeleteMapping("daycares/groups/delete/{id}")
-    public List<Group> groupDelete(@PathVariable Integer id) {
-        return groupRepo.delete();
+    public Group deleteGroup(@PathVariable Integer id) {
+        return new Group(id, HttpStatus.OK);
     }
 
 }

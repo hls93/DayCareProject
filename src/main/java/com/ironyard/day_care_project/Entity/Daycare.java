@@ -1,5 +1,7 @@
 package com.ironyard.day_care_project.Entity;
 
+import org.springframework.http.HttpStatus;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +29,7 @@ public class Daycare {
     private String password;
 
 
-    public Daycare() {
+    public Daycare(Integer id, HttpStatus ok) {
     }
 
     public Daycare(String address, String city, String state, String zipcode, String name, String email, String password) {

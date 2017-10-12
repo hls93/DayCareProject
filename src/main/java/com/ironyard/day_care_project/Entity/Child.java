@@ -1,5 +1,7 @@
 package com.ironyard.day_care_project.Entity;
 
+import org.springframework.http.HttpStatus;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,7 +28,7 @@ public class Child {
     @JoinColumn(name = "group_id", referencedColumnName = "id")
     private Group owner;
 
-    public Child() {
+    public Child(Integer id, HttpStatus ok) {
     }
 
     public Child(String firstName, String lastName, String dob, String parentFirstName, String parentLastName, String parentEmail, Group owner) {
