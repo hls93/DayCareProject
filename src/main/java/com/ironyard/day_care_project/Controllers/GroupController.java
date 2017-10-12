@@ -30,6 +30,20 @@ public class GroupController {
         return groupRepo.save(group);
     }
 
+    @PutMapping("/daycares/groups/{id}")
+    public ResponseEntity<Group> updateGroup(@PathVariable(value = "id") Integer id, @RequestBody Group groupDetails){
+        Group group = groupRepo.findOne(id);
+        if (group == null) {
+            return ResponseEntity.notFound().build();
+        }
+        group.setName(groupDetails.getName());
+        group.setTeachers(groupDetails.getTeachers());
+        group.setOwner(groupDetails.getOwner());
+
+        Group updatedGroup = groupRepo.save(group);
+        return ResponseEntity.ok(updatedGroup);
+    }
+
     @DeleteMapping("daycares/groups/delete/{id}")
     public ResponseEntity<Group> deleteGroup(@PathVariable(value= "id") Integer id) {
        Group group = groupRepo.findOne(id);

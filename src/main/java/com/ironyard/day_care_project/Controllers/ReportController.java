@@ -6,6 +6,7 @@ import com.ironyard.day_care_project.Entity.Report;
 import com.ironyard.day_care_project.Repos.ReportRepository;
 import com.ironyard.day_care_project.Services.ReportContentBuilder;
 import com.ironyard.day_care_project.Services.ReportSenderService;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,11 +41,24 @@ public class ReportController {
         return null;
     }
 
-//    @PutMapping("/daycares/reports")
-//    public Report putReports(@PathVariable Integer id, @RequestBody Report report){
-//        report = reportRepo.update(id, report);
-//        return new Report(report, HttpStatus.OK);
-//    }
+
+    @PutMapping("/daycares/reports/{id}")
+    public ResponseEntity<Report> updateGroup(@PathVariable(value = "id") Integer id, @RequestBody Report reportDetails){
+        Report report = reportRepo.findOne(id);
+        if (report == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        report.setDiaperChange(reportDetails.getDiaperChange());
+        report.setItemsNeeded(reportDetails.getItemsNeeded());
+        report.setMeals(reportDetails.getMeals());
+        report.setNaps(reportDetails.getNaps());
+        report.setNote(reportDetails.getNote());
+        report.setOwner(reportDetails.getOwner());
+
+        Report updatedReport = reportRepo.save(report);
+        return ResponseEntity.ok(updatedReport);
+    }
 
     @DeleteMapping("daycares/report/delete/{id}")
     public ResponseEntity<Report> deleteChild(@PathVariable(value= "id") Integer id) {

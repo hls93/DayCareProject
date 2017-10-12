@@ -36,6 +36,25 @@ public class DaycareController {
         return daycareRepo.findByEmail(principal.getName());
     }
 
+    @PutMapping("/daycares/{id}")
+    public ResponseEntity<Daycare> updateGroup(@PathVariable(value = "id") Integer id, @RequestBody Daycare daycareDetails){
+        Daycare daycare = daycareRepo.findOne(id);
+        if (daycare== null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        daycare.setAddress(daycareDetails.getAddress());
+        daycare.setCity(daycareDetails.getCity());
+        daycare.setState(daycareDetails.getState());
+        daycare.setZipcode(daycareDetails.getZipcode());
+        daycare.setName(daycareDetails.getName());
+        daycare.setEmail(daycareDetails.getEmail());
+        daycare.setPassword(daycareDetails.getPassword());
+
+        Daycare updatedDaycare = daycareRepo.save(daycare);
+        return ResponseEntity.ok(updatedDaycare);
+    }
+
     @DeleteMapping("daycares/delete/{id}")
     public ResponseEntity<Daycare> deleteDaycare(@PathVariable(value= "id") Integer id) {
         Daycare daycare = daycareRepo.findOne(id);
