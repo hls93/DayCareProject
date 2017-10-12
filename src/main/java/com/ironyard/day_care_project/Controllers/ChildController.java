@@ -20,6 +20,11 @@ public class ChildController {
         return childRepo.findAllByOwnerId(id);
     }
 
+    @GetMapping("/daycares/roster")
+    public  List<Child> childList(){
+        return childRepo.findAll();
+    }
+
     @PostMapping("/daycares/child")
     public Child register(@RequestBody Child child) {
 
