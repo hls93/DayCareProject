@@ -1,9 +1,6 @@
 package com.ironyard.day_care_project.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
@@ -20,16 +17,21 @@ public class Report {
     private ArrayList<Nap> naps;
     private String note;
 
+    @ManyToOne(targetEntity = Child.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "child_id", referencedColumnName = "id")
+    private Group owner;
+
     public Report() {
     }
 
-    public Report(Integer id, ArrayList<DiaperChange> diaperChange, ArrayList<ItemNeeded> itemsNeeded, ArrayList<Meal> meals, ArrayList<Nap> naps, String note) {
+    public Report(Integer id, ArrayList<DiaperChange> diaperChange, ArrayList<ItemNeeded> itemsNeeded, ArrayList<Meal> meals, ArrayList<Nap> naps, String note, Group Owner) {
         this.id = id;
         this.diaperChange = diaperChange;
         this.itemsNeeded = itemsNeeded;
         this.meals = meals;
         this.naps = naps;
         this.note = note;
+        this.owner = owner;
     }
 
     public ArrayList<DiaperChange> getDiaperChange() {
@@ -78,6 +80,14 @@ public class Report {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public Group getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Group owner) {
+        this.owner = owner;
     }
 }
 

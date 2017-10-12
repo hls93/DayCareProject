@@ -27,4 +27,9 @@ public class GroupController {
         return groupRepo.save(group);
     }
 
+    @DeleteMapping("daycares/groups/delete/{id}")
+    public List<Group> groupDelete(@PathVariable Integer id) {
+        return groupRepo.delete();
+    }
+
 }
