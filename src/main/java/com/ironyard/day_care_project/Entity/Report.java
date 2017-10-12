@@ -23,7 +23,7 @@ public class Report {
     @JoinColumn(name = "child_id", referencedColumnName = "id")
     private Group owner;
 
-    public Report(Integer report, HttpStatus ok) {
+    public Report() {
     }
 
     public Report(Integer id, ArrayList<DiaperChange> diaperChange, ArrayList<ItemNeeded> itemsNeeded, ArrayList<Meal> meals, ArrayList<Nap> naps, String note, Group Owner) {

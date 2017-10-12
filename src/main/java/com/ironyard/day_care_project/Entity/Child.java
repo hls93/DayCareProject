@@ -28,7 +28,7 @@ public class Child {
     @JoinColumn(name = "group_id", referencedColumnName = "id")
     private Group owner;
 
-    public Child(Integer id, HttpStatus ok) {
+    public Child() {
     }
 
     public Child(String firstName, String lastName, String dob, String parentFirstName, String parentLastName, String parentEmail, Group owner) {

@@ -1,5 +1,6 @@
 package com.ironyard.day_care_project.Controllers;
 
+import com.ironyard.day_care_project.Entity.Child;
 import com.ironyard.day_care_project.Entity.Group;
 import com.ironyard.day_care_project.Entity.Report;
 import com.ironyard.day_care_project.Repos.ReportRepository;
@@ -7,6 +8,7 @@ import com.ironyard.day_care_project.Services.ReportContentBuilder;
 import com.ironyard.day_care_project.Services.ReportSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,9 +46,15 @@ public class ReportController {
 //        return new Report(report, HttpStatus.OK);
 //    }
 
-    @DeleteMapping("daycares/reports/delete/{id}")
-    public Report deleteGroup(@PathVariable Integer id) {
-        return new Report(id, HttpStatus.OK);
+    @DeleteMapping("daycares/report/delete/{id}")
+    public ResponseEntity<Report> deleteChild(@PathVariable(value= "id") Integer id) {
+        Report report = reportRepo.findOne(id);
+        if (report == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        reportRepo.delete(report);
+        return ResponseEntity.ok().build();
     }
 
 

@@ -5,6 +5,8 @@ import com.ironyard.day_care_project.Entity.Group;
 import com.ironyard.day_care_project.Repos.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -29,8 +31,16 @@ public class GroupController {
     }
 
     @DeleteMapping("daycares/groups/delete/{id}")
-    public Group deleteGroup(@PathVariable Integer id) {
-        return new Group(id, HttpStatus.OK);
+    public ResponseEntity<Group> deleteGroup(@PathVariable(value= "id") Integer id) {
+       Group group = groupRepo.findOne(id);
+       if (group == null) {
+           return ResponseEntity.notFound().build();
+       }
+
+       groupRepo.delete(group);
+       return ResponseEntity.ok().build();
     }
+
+
 
 }

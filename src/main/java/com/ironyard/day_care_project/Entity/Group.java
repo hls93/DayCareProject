@@ -26,7 +26,7 @@ public class Group {
     @JoinColumn(name = "daycare", referencedColumnName = "id")
     private Daycare owner;
 
-    public Group(Integer id, HttpStatus ok) {
+    public Group() {
 
     }
 

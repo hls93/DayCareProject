@@ -28,8 +28,7 @@ public class Daycare {
 
     private String password;
 
-
-    public Daycare(Integer id, HttpStatus ok) {
+    public Daycare() {
     }
 
     public Daycare(String address, String city, String state, String zipcode, String name, String email, String password) {
@@ -73,15 +72,6 @@ public class Daycare {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-//    public Set<Group> getGroups() {
-//        return groups;
-//    }
-//
-//    public void setGroups(Set<Group> groups) {
-//        this.groups = groups;
-//    }
 
     public String getAddress() {
         return address;

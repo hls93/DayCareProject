@@ -10,5 +10,4 @@ public interface GroupRepository extends JpaRepository <Group, Integer> {
 
     List<Group> findAllByOwnerEmail(String email);
 
-
 }

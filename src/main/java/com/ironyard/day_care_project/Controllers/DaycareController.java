@@ -1,10 +1,12 @@
 package com.ironyard.day_care_project.Controllers;
 
+import com.ironyard.day_care_project.Entity.Child;
 import com.ironyard.day_care_project.Entity.Daycare;
 import com.ironyard.day_care_project.Entity.Group;
 import com.ironyard.day_care_project.Repos.DaycareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -35,8 +37,14 @@ public class DaycareController {
     }
 
     @DeleteMapping("daycares/delete/{id}")
-    public Daycare deleteDaycare(@PathVariable Integer id) {
-        return new Daycare(id, HttpStatus.OK);
+    public ResponseEntity<Daycare> deleteDaycare(@PathVariable(value= "id") Integer id) {
+        Daycare daycare = daycareRepo.findOne(id);
+        if (daycare == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        daycareRepo.delete(daycare);
+        return ResponseEntity.ok().build();
     }
 
 
