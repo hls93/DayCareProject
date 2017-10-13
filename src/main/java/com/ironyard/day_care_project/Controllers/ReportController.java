@@ -1,20 +1,15 @@
 package com.ironyard.day_care_project.Controllers;
 
-import com.ironyard.day_care_project.Entity.Child;
-import com.ironyard.day_care_project.Entity.Group;
 import com.ironyard.day_care_project.Entity.Report;
 import com.ironyard.day_care_project.Repos.ReportRepository;
 import com.ironyard.day_care_project.Services.ReportContentBuilder;
 import com.ironyard.day_care_project.Services.ReportSenderService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 
 @RestController
 public class ReportController {

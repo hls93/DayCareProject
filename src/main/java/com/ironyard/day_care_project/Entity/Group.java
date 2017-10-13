@@ -1,12 +1,6 @@
 package com.ironyard.day_care_project.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.springframework.http.HttpStatus;
-
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 

@@ -1,7 +1,5 @@
 package com.ironyard.day_care_project.Entity;
 
-import org.springframework.http.HttpStatus;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 

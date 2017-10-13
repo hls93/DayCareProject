@@ -1,14 +1,10 @@
 package com.ironyard.day_care_project.Controllers;
 
-import com.ironyard.day_care_project.Entity.Child;
+
 import com.ironyard.day_care_project.Entity.Daycare;
-import com.ironyard.day_care_project.Entity.Group;
 import com.ironyard.day_care_project.Repos.DaycareRepository;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;

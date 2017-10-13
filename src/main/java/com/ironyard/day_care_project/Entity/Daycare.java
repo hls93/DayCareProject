@@ -1,10 +1,8 @@
 package com.ironyard.day_care_project.Entity;
 
-import org.springframework.http.HttpStatus;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
+
 
 @Entity
 @Table(name = "daycare")
