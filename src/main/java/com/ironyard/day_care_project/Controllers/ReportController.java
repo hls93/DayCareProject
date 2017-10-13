@@ -29,6 +29,15 @@ public class ReportController {
         return reportRepo.findAll();
     }
 
+    @GetMapping("/daycares/reports/{id}")
+    public ResponseEntity<Report> getReportById(@PathVariable(value = "id") Integer reportId ) {
+        Report report = reportRepo.findOne(reportId);
+        if (report == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(report);
+    }
+
     @PostMapping("/daycares/reports")
     public Report post(@RequestBody Report report) {
        // return reportRepo.save(report);
