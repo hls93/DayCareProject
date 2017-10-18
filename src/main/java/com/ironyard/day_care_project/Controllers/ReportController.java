@@ -1,5 +1,6 @@
 package com.ironyard.day_care_project.Controllers;
 
+import com.ironyard.day_care_project.Entity.Child;
 import com.ironyard.day_care_project.Entity.Report;
 import com.ironyard.day_care_project.Repos.ReportRepository;
 import com.ironyard.day_care_project.Services.ReportContentBuilder;
@@ -38,12 +39,18 @@ public class ReportController {
         return ResponseEntity.ok().body(report);
     }
 
-    @PostMapping("/daycares/reports")
-    public Report post(@RequestBody Report report) {
-       // return reportRepo.save(report);
-        reportSenderService.prepareAndSend("cmr319@yahoo.com", "Daily Report", "changed at 10");
-        return null;
+    @PostMapping("daycare/reports")
+    public  Report save(@RequestBody Report report) {
+
+        return reportRepo.save(report);
     }
+
+//    @PostMapping("/daycares/reports")
+//    public Report post(@RequestBody Report report) {
+//       // return reportRepo.save(report);
+//        reportSenderService.prepareAndSend("cmr319@yahoo.com", "Daily Report", "changed at 10");
+//        return null;
+//    }
 
 
     @PutMapping("/daycares/reports/{id}")
