@@ -30,8 +30,8 @@ public class ReportController {
     }
 
     @GetMapping("/daycares/reports/{id}")
-    public ResponseEntity<Report> getReportById(@PathVariable(value = "id") Integer reportId ) {
-        Report report = reportRepo.findOne(reportId);
+    public ResponseEntity<Report> getReportById(@PathVariable(value = "id") Integer id ) {
+        Report report = reportRepo.findOne(id);
         if (report == null) {
             return ResponseEntity.notFound().build();
         }

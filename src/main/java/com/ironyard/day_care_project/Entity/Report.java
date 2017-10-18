@@ -17,7 +17,7 @@ public class Report {
     private ArrayList<Nap> naps;
     private String note;
 
-    @ManyToOne(targetEntity = Child.class, fetch = FetchType.LAZY)
+    @OneToOne(targetEntity = Child.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "child_id", referencedColumnName = "id")
     private Group owner;
 
